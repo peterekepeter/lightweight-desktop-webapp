@@ -5,6 +5,9 @@ set -e
 repoRoot=$(pwd)
 frontendApp=$repoRoot/svelte
 neutralinoApp=$repoRoot/neutralino
+htmlToPatch=$repoRoot/svelte/src/app.html
+
+git checkout HEAD -- $htmlToPatch
 
 rm -rf dist
 
@@ -20,3 +23,5 @@ cp -r $frontendApp/.svelte-kit/output/prerendered/pages/* resources
 neu build --release
 
 mv $neutralinoApp/dist $repoRoot
+
+echo build output avaiable at ./dist

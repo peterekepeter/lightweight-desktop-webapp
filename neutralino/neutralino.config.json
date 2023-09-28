@@ -78,6 +78,7 @@
     "extensionsPath": "/extensions/",
     "binaryVersion": "4.14.0",
     "clientVersion": "3.12.0",
+    
     "frontendLibrary": {
       "patchFile": "../svelte/src/app.html",
       "devUrl": "http://localhost:5173"
