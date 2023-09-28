@@ -1,0 +1,44 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "devserver",
+            "type": "shell",
+            "command": "./scripts/devserver.sh",
+            "isBackground": true,
+            "problemMatcher": [{
+                "pattern": {
+                    "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {"activeOnStart": true, "endsPattern": "ready in \\d+ ms", "beginsPattern": "vite dev"}
+            }]
+        },
+        {
+            "label": "develop",
+            "type": "shell",
+            "command": "./scripts/neutralino.sh",
+            "isBackground": true,
+            "dependsOn": ["devserver"],
+            "problemMatcher": [{
+                "pattern": {
+                    "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {"activeOnStart": true, "endsPattern": "CONSOLE DEBUG [vite] connected", "beginsPattern": "Starting process:"}
+            }]
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "./scripts/build.sh",
+            "problemMatcher": []
+        }
+    ]
+}
