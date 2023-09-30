@@ -39,6 +39,13 @@
             "type": "shell",
             "command": "./scripts/build.sh",
             "problemMatcher": []
+        },
+        {
+            "label": "init",
+            "type": "shell",
+            "command": "./scripts/init.sh",
+            "problemMatcher": []
         }
+    ]
     ]
 }
